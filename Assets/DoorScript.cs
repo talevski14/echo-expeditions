@@ -7,11 +7,31 @@ using System;
 public class DoorScript : MonoBehaviour
 {
     public int index;
+    private int _playersInTrigger = 0; // Counter for players in the trigger area
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(index);
+            _playersInTrigger++;
+
+            if (_playersInTrigger == 2)
+            {
+                SceneManager.LoadScene(index);
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _playersInTrigger--;
+
+            if (_playersInTrigger < 0)
+            {
+                _playersInTrigger = 0;
+            }
         }
     }
 }
