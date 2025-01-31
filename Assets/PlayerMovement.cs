@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f;
     bool jump = false;
     bool crouch = false;
+    public static bool canMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove) return;
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (Input.GetButtonDown("Jump"))
         {
@@ -47,5 +51,10 @@ public class PlayerMovement : MonoBehaviour
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
+    }
+    
+    public static void SetMovement(bool state)
+    {
+        canMove = state;
     }
 }
