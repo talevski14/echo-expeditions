@@ -12,6 +12,7 @@ public class StoreScript : MonoBehaviour
     public Button closeButton;
     public Button buyBulletsButton;
     public int bulletPrice = 20;
+    public int damage = 20;
 
     void Start() {
         storePanel.SetActive(false);
@@ -45,6 +46,9 @@ public class StoreScript : MonoBehaviour
         if (ScoreTextScript.coinAmount >= bulletPrice)
         {
             ScoreTextScript.coinAmount -= bulletPrice;
+            Bullet.IncreaseDamage(damage);
+            Weapon.IncreaseDamageOnBullet(true);
+            Weapon2.IncreaseDamageOnBullet(true);
         }
         else
         {
