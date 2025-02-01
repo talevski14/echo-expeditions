@@ -10,12 +10,17 @@ public class ScoreTextScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        coinAmount = Lives.lastScore;
         text = GetComponent<TextMesh>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (coinAmount < 0)
+        {
+            coinAmount = 0;
+        }
         text.text = coinAmount.ToString();
     }
 }
