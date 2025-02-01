@@ -17,6 +17,11 @@ public class Lives : MonoBehaviour
         UpdateHearts();
     }
 
+    void Update()
+    {
+        UpdateHearts();
+    }
+
     public void LoseLife()
     {
         lives--;
@@ -44,5 +49,14 @@ public class Lives : MonoBehaviour
     void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public static void BuyLife()
+    {
+        lives++;
+        if (lives >= 3)
+        {
+            lives = 3;
+        }
     }
 }

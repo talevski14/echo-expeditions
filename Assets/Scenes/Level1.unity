@@ -2355,10 +2355,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storePanel: {fileID: 1079142938}
   message: {fileID: 758393778}
+  enoughLivesMessage: {fileID: 1186471057}
   openStoreButton: {fileID: 265275643}
   closeButton: {fileID: 1798298633}
   buyBulletsButton: {fileID: 1234239032}
+  buyLivesButton: {fileID: 1758856840}
   bulletPrice: 20
+  lifePrice: 10
   damage: 20
 --- !u!4 &648357196
 Transform:
@@ -2478,12 +2481,12 @@ GameObject:
   - component: {fileID: 758393781}
   - component: {fileID: 758393780}
   m_Layer: 0
-  m_Name: Text
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &758393779
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2935,7 +2938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf9b12be3cf8b9478451be7ffdad363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 3
   heartImages:
   - {fileID: 166995819}
   - {fileID: 46568125}
@@ -3438,7 +3440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1079142939
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3454,6 +3456,7 @@ RectTransform:
   - {fileID: 1798298636}
   - {fileID: 1234239031}
   - {fileID: 1758856839}
+  - {fileID: 1186471058}
   m_Father: {fileID: 1119393340}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3677,6 +3680,85 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 50
   m_TargetDisplay: 0
+--- !u!1 &1186471057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186471058}
+  - component: {fileID: 1186471060}
+  - component: {fileID: 1186471059}
+  m_Layer: 0
+  m_Name: LivesMessage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1186471058
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186471057}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0003649, y: 1.0003649, z: 1.0003649}
+  m_Children: []
+  m_Father: {fileID: 1079142939}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 74.7}
+  m_SizeDelta: {x: 304.69, y: 21.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1186471059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186471057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.91372555, g: 0.3921569, b: 0.9686275, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 991c74cca29d44142b867ff5688c7d98, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: You already have enough lives.
+--- !u!222 &1186471060
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186471057}
+  m_CullTransparentMesh: 0
 --- !u!1 &1234239030
 GameObject:
   m_ObjectHideFlags: 0
