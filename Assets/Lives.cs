@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class Lives : MonoBehaviour
 {
-    public static int lives = 3; // Number of lives
-    public Image[] heartImages; // UI heart images
-    public string gameOverScene = "GameOver"; // Scene to load on game over
+    public static int lives = 3;
+    public Image[] heartImages;
+    public string gameOverScene = "GameOver";
     public static int lastScore = 0;
     
     void Start()
@@ -20,12 +20,12 @@ public class Lives : MonoBehaviour
     void Update()
     {
         UpdateHearts();
+        lastScore = ScoreTextScript.coinAmount;
     }
 
     public void LoseLife()
     {
         lives--;
-        lastScore = ScoreTextScript.coinAmount;
 
         if (lives <= 0)
         {

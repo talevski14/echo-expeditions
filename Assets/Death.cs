@@ -7,7 +7,6 @@ public class Death : MonoBehaviour
 {
     public int health = 100;
     public GameObject deathEffect;
-    // private static int _deadPlayers = 0;
 
     public void TakeDamage(int damage)
     {
@@ -22,13 +21,7 @@ public class Death : MonoBehaviour
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
-        ScoreTextScript.coinAmount -= 15;
+        ScoreTextScript.coinAmount -= 50;
         FindObjectOfType<Lives>().LoseLife();
-        // _deadPlayers++;
-        // if (_deadPlayers == 2)
-        // {
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //     _deadPlayers = 0;
-        // }
     }
 }

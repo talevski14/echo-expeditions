@@ -10,6 +10,7 @@ public class GameOverScript : MonoBehaviour
         SceneManager.LoadScene(1);
         Lives.lives = 3;
         ScoreTextScript.coinAmount = 0;
+        Lives.lastScore = 0;
     }
     public void QuitGame()
     {

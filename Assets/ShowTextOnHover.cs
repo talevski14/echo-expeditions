@@ -6,6 +6,10 @@ public class ShowTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     public GameObject hoverText;
     private Button button;
+    public GameObject message;
+    public GameObject enoughLivesMessage;
+    public GameObject boughtLivesMessage;
+    public GameObject boughtBulletsMessage;
 
     void Start()
     {
@@ -17,6 +21,11 @@ public class ShowTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (button != null && !button.interactable)
         {
+            message.SetActive(false);
+            enoughLivesMessage.SetActive(false);
+            boughtLivesMessage.SetActive(false);
+            boughtBulletsMessage.SetActive(false);
+            
             hoverText.SetActive(true);
         }
     }
