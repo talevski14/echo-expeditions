@@ -19,8 +19,8 @@ public class StoreScript : MonoBehaviour
     public Button buyBulletsButton;
     public Button buyLivesButton;
     
-    public int bulletPrice = 20;
-    public int lifePrice = 10;
+    public int bulletPrice = 30;
+    public int lifePrice = 50;
     public int damage = 20;
     public static bool alreadyBoughtBullets = false;
 
