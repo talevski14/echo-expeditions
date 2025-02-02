@@ -8,13 +8,17 @@ using UnityEngine.UI;
 public class StoreScript : MonoBehaviour
 {
     public GameObject storePanel;
+    
     public GameObject message;
     public GameObject enoughLivesMessage;
-    // public GameObject alreadyBoughtBulletsMessage;
+    public GameObject boughtLivesMessage;
+    public GameObject boughtBulletsMessage;
+    
     public Button openStoreButton;
     public Button closeButton;
     public Button buyBulletsButton;
     public Button buyLivesButton;
+    
     public int bulletPrice = 20;
     public int lifePrice = 10;
     public int damage = 20;
@@ -22,9 +26,12 @@ public class StoreScript : MonoBehaviour
 
     void Start() {
         storePanel.SetActive(false);
+        
         message.SetActive(false);
         enoughLivesMessage.SetActive(false);
-        // alreadyBoughtBulletsMessage.SetActive(false);
+        boughtLivesMessage.SetActive(false);
+        boughtBulletsMessage.SetActive(false);
+        
         openStoreButton.onClick.AddListener(OpenStore);
         closeButton.onClick.AddListener(CloseStore);
         buyBulletsButton.onClick.AddListener(BuyBullets);
@@ -43,11 +50,15 @@ public class StoreScript : MonoBehaviour
     {
         message.SetActive(false);
         enoughLivesMessage.SetActive(false);
+        boughtLivesMessage.SetActive(false);
+        boughtBulletsMessage.SetActive(false);
+        
         storePanel.SetActive(true);
         PlayerMovement.SetMovement(false);
         PlayerMovement2.SetMovement(false);
         Weapon.SetShooting(false);
         Weapon2.SetShooting(false);
+        
         if (alreadyBoughtBullets)
         {
             buyBulletsButton.interactable = false;
@@ -70,6 +81,9 @@ public class StoreScript : MonoBehaviour
             ScoreTextScript.coinAmount -= bulletPrice;
             Bullet.IncreaseDamage(damage);
             alreadyBoughtBullets = true;
+            boughtBulletsMessage.SetActive(true);
+            Invoke(nameof(DeactivateMessageForBoughtBullets), 3f);
+
             Weapon.IncreaseDamageOnBullet(true);
             Weapon2.IncreaseDamageOnBullet(true);
         }
@@ -93,6 +107,8 @@ public class StoreScript : MonoBehaviour
         {
             ScoreTextScript.coinAmount -= lifePrice;
             Lives.BuyLife();
+            boughtLivesMessage.SetActive(true);
+            Invoke(nameof(DeactivateMessageForBoughtLives), 3f);
         }
         else
         {
@@ -109,5 +125,15 @@ public class StoreScript : MonoBehaviour
     void DeactivateMessageForLives()
     {
         enoughLivesMessage.SetActive(false);
+    }
+
+    void DeactivateMessageForBoughtLives()
+    {
+        boughtLivesMessage.SetActive(false);
+    }
+
+    void DeactivateMessageForBoughtBullets()
+    {
+        boughtBulletsMessage.SetActive(false);
     }
 }

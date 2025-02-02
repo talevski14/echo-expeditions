@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI; // Required for Button
+using UnityEngine.UI;
 
 public class ShowTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject hoverText; // Assign this in the Inspector
+    public GameObject hoverText;
     private Button button;
 
     void Start()
