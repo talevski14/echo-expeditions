@@ -81,6 +81,11 @@ public class StoreScript : MonoBehaviour
             ScoreTextScript.coinAmount -= bulletPrice;
             Bullet.IncreaseDamage(damage);
             alreadyBoughtBullets = true;
+            
+            message.SetActive(false);
+            enoughLivesMessage.SetActive(false);
+            boughtLivesMessage.SetActive(false);
+            boughtBulletsMessage.SetActive(false);
             boughtBulletsMessage.SetActive(true);
             Invoke(nameof(DeactivateMessageForBoughtBullets), 3f);
 
@@ -89,6 +94,10 @@ public class StoreScript : MonoBehaviour
         }
         else
         {
+            message.SetActive(false);
+            enoughLivesMessage.SetActive(false);
+            boughtLivesMessage.SetActive(false);
+            boughtBulletsMessage.SetActive(false);
             message.SetActive(true);
             Invoke(nameof(DeactivateMessageForGems), 3f);
         }
@@ -101,17 +110,30 @@ public class StoreScript : MonoBehaviour
         
         if (currentNumOfLives >= 3)
         {
+            message.SetActive(false);
+            enoughLivesMessage.SetActive(false);
+            boughtLivesMessage.SetActive(false);
+            boughtBulletsMessage.SetActive(false);
             enoughLivesMessage.SetActive(true);
             Invoke(nameof(DeactivateMessageForLives), 3f);
         } else if (currentCoinAmount >= lifePrice)
         {
             ScoreTextScript.coinAmount -= lifePrice;
             Lives.BuyLife();
+            
+            message.SetActive(false);
+            enoughLivesMessage.SetActive(false);
+            boughtLivesMessage.SetActive(false);
+            boughtBulletsMessage.SetActive(false);
             boughtLivesMessage.SetActive(true);
             Invoke(nameof(DeactivateMessageForBoughtLives), 3f);
         }
         else
         {
+            message.SetActive(false);
+            enoughLivesMessage.SetActive(false);
+            boughtLivesMessage.SetActive(false);
+            boughtBulletsMessage.SetActive(false);
             message.SetActive(true);
             Invoke(nameof(DeactivateMessageForGems), 3f);
         }
