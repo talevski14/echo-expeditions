@@ -2591,6 +2591,10 @@ MonoBehaviour:
   bulletPrice: 30
   lifePrice: 50
   damage: 20
+  bulletsSound: {fileID: 3780495629416078329, guid: 574c827822d7a0f40963adc74d92aa99,
+    type: 3}
+  livesSound: {fileID: 3780495629416078329, guid: 5c5178b5c7cf41e47833248ded17c1c8,
+    type: 3}
 --- !u!4 &648357196
 Transform:
   m_ObjectHideFlags: 0

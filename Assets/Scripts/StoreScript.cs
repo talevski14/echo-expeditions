@@ -24,6 +24,9 @@ public class StoreScript : MonoBehaviour
     public int damage = 20;
     public static bool alreadyBoughtBullets = false;
 
+    public GameObject bulletsSound;
+    public GameObject livesSound;
+
     void Start() {
         storePanel.SetActive(false);
         
@@ -91,6 +94,7 @@ public class StoreScript : MonoBehaviour
 
             Weapon.IncreaseDamageOnBullet(true);
             Weapon2.IncreaseDamageOnBullet(true);
+            Instantiate(bulletsSound, transform.position, Quaternion.identity);
         }
         else
         {
@@ -127,6 +131,7 @@ public class StoreScript : MonoBehaviour
             boughtBulletsMessage.SetActive(false);
             boughtLivesMessage.SetActive(true);
             Invoke(nameof(DeactivateMessageForBoughtLives), 3f);
+            Instantiate(livesSound, transform.position, Quaternion.identity);
         }
         else
         {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3780495629416078330}
   - component: {fileID: 7965885373998544010}
   m_Layer: 0
-  m_Name: PlayerDeath
+  m_Name: BuyingHeart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 202feb6bd2f1b4644a24cb16991da631, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d1987d3fba53fcc4d814c9dd8f594d1a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
