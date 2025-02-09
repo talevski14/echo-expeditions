@@ -11,6 +11,9 @@ public class GameOverScript : MonoBehaviour
         Lives.lives = 3;
         ScoreTextScript.coinAmount = 0;
         Lives.lastScore = 0;
+        StoreScript.alreadyBoughtBullets = false;
+        Weapon.IncreaseDamageOnBullet(false);
+        Weapon2.IncreaseDamageOnBullet(false);
     }
     public void QuitGame()
     {

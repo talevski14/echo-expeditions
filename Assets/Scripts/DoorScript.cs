@@ -7,7 +7,7 @@ using System;
 public class DoorScript : MonoBehaviour
 {
     public int index;
-    private int _playersInTrigger = 0; // Counter for players in the trigger area
+    private int _playersInTrigger = 0;
 
     void OnTriggerEnter2D(Collider2D other)
     {
